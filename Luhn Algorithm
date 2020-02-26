@@ -1,0 +1,56 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb 26 20:03:53 2020
+
+@author: Mitul M Narotam
+"""
+
+print("Luhn Algorithm \n")
+
+#taking in the credit card number
+CardNumber = input("Enter the Credit Number: ")
+
+i = 0
+
+total = 0
+
+#for loop to double the value of every second digit
+for i in range(0,len(CardNumber),2):
+    j = int(CardNumber[i])
+    j = j*2
+    
+    #the if statement checks if the result of the doubling is greater than 9
+    if j >= 10:
+        k = str(j)
+        l = k[0]
+        m = k[1]
+        
+        #this total is adding every second number if the value is greater than 9
+        total = total + int(l)+int(m)
+        
+    else:
+        #this total is adding every second value which is not greater than 9
+        total = total + j
+e = 0
+
+#this forloop adds the remainder values into the total
+for e in range(1,len(CardNumber),2):
+    f = int(CardNumber[e])
+    total += f
+
+
+output = str(total)
+
+#this if statement check if the last digit is zero to display valid
+if output[1] == '0':
+    print("valid")
+else:
+    #if the last digit is not zero then invalid is displayed
+    print("invalid")
+    
+    
+    #4137 8947 1175 5904 is valid
+    #6499 8024 5027 3568 is not valid
+    #8504 1721 9127 3888 is valid
+    #0043 6687 8348 5480 is not valid
+            
