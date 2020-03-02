@@ -1,0 +1,23 @@
+#Mitul M Narotam
+
+print("\tCaesars Cipher\n")
+
+def encrypt(string, shift):
+ 
+  cipher = ''
+  for char in string: 
+    if char == ' ':
+      cipher = cipher + char
+    elif  char.isupper():
+      cipher = cipher + chr((ord(char) + shift - 65) % 26 + 65)
+    else:
+      cipher = cipher + chr((ord(char) + shift - 97) % 26 + 97)
+  
+  return cipher
+ 
+text = input("\nenter text to encrypt: ")
+text = text.replace( " ", "")
+s = int(input("enter Key : "))
+print("\n\nOriginal text: ", text)
+print("key: ", s)
+print("Ciper text: ", encrypt(text, s))
